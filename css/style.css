@@ -61,6 +61,12 @@ section{padding-block:clamp(3rem,8vw,5.5rem);}
 .hero-grid{display:grid;grid-template-columns:1.5fr 1fr;gap:3rem;align-items:center;}
 .hello{color:var(--muted);font-weight:500;margin-bottom:.75rem;}
 .hero h1{font-size:clamp(2.6rem,7vw,5rem);font-weight:700;}
+/* Typing animation */
+.type-wrap{display:inline-grid;}
+.type-wrap>*{grid-area:1/1;}
+.type-ghost{visibility:hidden;}
+.typed.on::after{content:"";display:inline-block;width:.07em;height:.85em;margin-left:.06em;vertical-align:-.04em;background:var(--accent);animation:blink 1s steps(1) infinite;}
+@keyframes blink{50%{opacity:0;}}
 .role{font-family:var(--display);font-size:clamp(1.3rem,3vw,1.9rem);font-weight:500;margin-top:.6rem;color:var(--accent);}
 .lede{margin-top:1.25rem;max-width:52ch;color:var(--muted);font-size:1.15rem;}
 .socials{display:flex;gap:.6rem;margin-top:1.25rem;}
@@ -120,5 +126,5 @@ footer{border-top:1px solid var(--line);padding-block:1.5rem 2rem;color:var(--mu
 .to-top:hover{background:var(--accent-soft);border-color:var(--accent);}
 .to-top[hidden]{display:none;}
 
-@media (prefers-reduced-motion: reduce){html{scroll-behavior:auto;}*{transition:none!important;}}
-@media print{.top,.to-top,
+@media (prefers-reduced-motion: reduce){html{scroll-behavior:auto;}*{transition:none!important;}.typed.on::after{animation:none;}}
+@media print{.top,.to-top{display:none;}body{background:#fff;color:#000;}}
