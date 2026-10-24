@@ -16,6 +16,32 @@
     window.matchMedia("(min-width: 701px)").addEventListener("change", function () { setMenu(false); });
   }
 
+  /* ---------- Typing animation for the hero name ---------- */
+  var typed = $("#typed");
+  if (typed) {
+    var full = typed.textContent;
+    var reduce = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+    if (!reduce) {
+      /* ghost copy reserves the final size so the layout never jumps */
+      var wrap = document.createElement("span");
+      wrap.className = "type-wrap";
+      var ghost = document.createElement("span");
+      ghost.className = "type-ghost";
+      ghost.setAttribute("aria-hidden", "true");
+      ghost.textContent = full;
+      typed.parentNode.insertBefore(wrap, typed);
+      wrap.appendChild(ghost);
+      wrap.appendChild(typed);
+      typed.classList.add("typed", "on");
+      typed.textContent = "";
+      var i = 0;
+      (function tick() {
+        typed.textContent = full.slice(0, ++i);
+        if (i < full.length) setTimeout(tick, 70 + Math.random() * 70);
+      })();
+    }
+  }
+
   /* ---------- Footer year ---------- */
   var yr = $("#year");
   if (yr) yr.textContent = new Date().getFullYear();
