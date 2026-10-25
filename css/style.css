@@ -95,6 +95,8 @@ section{padding-block:clamp(3rem,8vw,5.5rem);}
 .proj h3{font-size:1.4rem;line-height:1.2;}
 .proj p{color:var(--muted);}
 .proj .result{margin-top:auto;padding:.7rem .9rem;background:var(--bg);border-left:4px solid var(--hi);border-radius:0 8px 8px 0;font-weight:500;font-size:.98rem;color:var(--ink);}
+.proj-link{align-self:flex-start;font-weight:600;color:var(--ink);text-decoration:none;border-bottom:2px solid var(--accent);padding-bottom:.1rem;transition:background .2s;}
+.proj-link:hover{background:var(--accent-soft);}
 .chips{display:flex;flex-wrap:wrap;gap:.4rem;}
 .chip{font-size:.82rem;border:1px solid var(--line);border-radius:999px;padding:.1rem .7rem;color:var(--muted);background:var(--accent-soft);}
 
